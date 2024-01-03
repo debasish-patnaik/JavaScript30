@@ -53,6 +53,10 @@ buttons.forEach((button) => button.addEventListener('click', startTimer));
 document.customForm.addEventListener('submit', function (e) {
 	e.preventDefault();
 	const mins = parseInt(this.minutes.value);
+	if (isNaN(mins)) {
+		this.reset();
+		return;
+	}
 	timer(mins * 60);
 	this.reset();
 });
